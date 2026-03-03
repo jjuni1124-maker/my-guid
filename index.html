@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub 가이드 - 코드를 넘어서 협업으로</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts (Pretendard) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Pretendard Variable"', 'Pretendard', 'sans-serif'],
+                    },
+                    colors: {
+                        github: {
+                            dark: '#0d1117',
+                            border: '#30363d',
+                            button: '#238636',
+                            buttonHover: '#2ea043',
+                            accent: '#58a6ff'
+                        },
+                        git: {
+                            main: '#F1502F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #0d1117; color: #c9d1d9; font-family: "Pretendard Variable", sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #58a6ff, #bc8cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-card {
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+            border-color: #58a6ff;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-[#0d1117]/90 backdrop-blur-md border-b border-github-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i class="fa-brands fa-github text-3xl text-white"></i>
+                    <span class="font-bold text-xl text-white tracking-tight">SyncHub</span>
+                </div>
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#preparation" class="hover:text-github-accent transition-colors">준비물</a>
+                    <a href="#signup-guide" class="hover:text-github-accent transition-colors">회원가입</a>
+                    <a href="#about-concepts" class="hover:text-github-accent transition-colors">개념정리</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 flex-grow">
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                학교 태블릿으로 배우는<br>
+                <span class="gradient-text">Git & GitHub 완벽 가이드</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                코딩의 필수 도구! 버전 관리(Git)와 협업 플랫폼(GitHub)을<br class="hidden md:block"> 학교 태블릿 환경에서 쉽게 시작해 보세요.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#signup-guide" class="bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors">가입부터 시작하기</a>
+            </div>
+        </section>
+
+        <!-- Preparation Section -->
+        <section id="preparation" class="py-16 bg-[#161b22] border-y border-github-border">
+            <div class="max-w-5xl mx-auto px-4 text-center">
+                <h2 class="text-2xl font-bold text-white mb-10 italic"># 필수 준비물</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-github-dark p-8 rounded-2xl border border-github-border text-left">
+                        <div class="w-12 h-12 bg-github-accent/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-tablet-screen-button text-2xl text-github-accent"></i>
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">학교 태블릿</h3>
+                        <p class="text-gray-400">웹 브라우저(Chrome 등)만 있으면 지금 바로 GitHub 저장소를 만들고 관리할 수 있습니다.</p>
+                    </div>
+                    <div class="bg-github-dark p-8 rounded-2xl border border-github-border text-left">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-user-check text-2xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-2">GitHub 계정</h3>
+                        <p class="text-gray-400">나의 코드를 백업하고 전 세계 개발자들과 공유하기 위해 반드시 계정이 필요합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Guide Section -->
+        <section id="signup-guide" class="py-20 max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">GitHub 회원가입 따라하기</h2>
+                <p class="text-gray-400">처음 보는 영어 화면도 이 순서대로만 따라오세요!</p>
+            </div>
+            <div class="space-y-4">
+                <div class="step-card bg-[#161b22] p-6 rounded-xl border border-github-border flex gap-5 items-center">
+                    <span class="text-2xl font-black text-github-accent">01</span>
+                    <p class="text-gray-300"><strong class="text-white">github.com</strong> 접속 후 오른쪽 위 <span class="text-white bg-github-button px-2 py-1 rounded text-xs">Sign up</span> 버튼을 누르세요.</p>
+                </div>
+                <div class="step-card bg-[#161b22] p-6 rounded-xl border border-github-border flex gap-5 items-center">
+                    <span class="text-2xl font-black text-github-accent">02</span>
+                    <p class="text-gray-300"><strong class="text-white">Email 입력:</strong> 학교나 개인 이메일을 입력하고 "Continue"를 누릅니다.</p>
+                </div>
+                <div class="step-card bg-[#161b22] p-6 rounded-xl border border-github-border flex gap-5 items-center">
+                    <span class="text-2xl font-black text-github-accent">03</span>
+                    <p class="text-gray-300"><strong class="text-white">Password 설정:</strong> 8자 이상의 강력한 비밀번호를 만드세요.</p>
+                </div>
+                <div class="step-card bg-[#161b22] p-6 rounded-xl border border-github-border flex gap-5 items-center">
+                    <span class="text-2xl font-black text-github-accent">04</span>
+                    <p class="text-gray-300"><strong class="text-white">Username 결정:</strong> 나만의 닉네임을 만드세요. (중복 불가)</p>
+                </div>
+                <div class="step-card bg-[#161b22] p-6 rounded-xl border border-github-border flex gap-5 items-center">
+                    <span class="text-2xl font-black text-github-accent">05</span>
+                    <p class="text-gray-300"><strong class="text-white">인증 확인:</strong> 퍼즐을 풀고 이메일로 온 8자리 숫자를 입력하면 가입 완료!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concepts Section -->
+        <section id="about-concepts" class="py-20 border-t border-github-border bg-github-dark">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <i class="fa-brands fa-git-alt text-7xl text-git-main"></i>
+                        <h3 class="text-3xl font-bold text-white">Git 이란?</h3>
+                        <p class="text-gray-400 leading-relaxed text-lg">
+                            내 컴퓨터 안의 <strong>'타임머신'</strong>입니다. 코드를 작성하다가 실수했을 때, 혹은 예전 상태로 되돌리고 싶을 때를 대비해 모든 변화 과정을 기록하는 도구입니다.
+                        </p>
+                    </div>
+                    <div class="space-y-6">
+                        <i class="fa-brands fa-github text-7xl text-white"></i>
+                        <h3 class="text-3xl font-bold text-white">GitHub 란?</h3>
+                        <p class="text-gray-400 leading-relaxed text-lg">
+                            Git으로 기록한 코드들을 모아두는 <strong>'온라인 금고'</strong>이자 개발자들의 <strong>'SNS'</strong>입니다. 내 작업물을 백업하고 다른 사람과 함께 협업할 수 있는 웹 서비스입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-github-border py-12 bg-[#010409] text-center">
+        <div class="flex items-center justify-center gap-2 mb-4">
+            <i class="fa-brands fa-github text-2xl text-gray-500"></i>
+            <span class="font-bold text-gray-400">SyncHub Guide</span>
+        </div>
+        <p class="text-gray-500 text-sm italic">© 2026 Git & GitHub Guide. Happy Coding on your Tablet!</p>
+    </footer>
+
+</body>
+</html>
